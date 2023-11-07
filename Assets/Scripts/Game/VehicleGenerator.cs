@@ -7,7 +7,7 @@ public class VehicleGenerator : MonoBehaviour
 {
     public static VehicleGenerator instance;
     public List<GameObject> Vehicles = new List<GameObject>();
-    private float time_to_create = 4f;
+    private float time_to_create = 2f;
     private float actual_time = 0f;
     private float limitSuperior;
     private float limitInferior;
@@ -33,11 +33,11 @@ public class VehicleGenerator : MonoBehaviour
         actual_time += Time.deltaTime;
         if (time_to_create <= actual_time)
         {
-            GameObject candy = Instantiate(Vehicles[Random.Range(0, Vehicles.Count)],
+            GameObject vehicle = Instantiate(Vehicles[Random.Range(0, Vehicles.Count)],
             new Vector3(transform.position.x, Random.Range(limitInferior, limitSuperior), 0f), Quaternion.identity);
-            candy.GetComponent<Rigidbody2D>().velocity = new Vector2(-2f, 0);
+            vehicle.GetComponent<Rigidbody2D>().velocity = new Vector2(-2f, 0);
             actual_time = 0f;
-            actual_vehicles.Add(candy);
+            actual_vehicles.Add(vehicle);
         }
     }
 

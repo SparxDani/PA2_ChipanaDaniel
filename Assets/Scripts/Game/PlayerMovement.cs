@@ -92,7 +92,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (other.tag == "Vehicle")
         {
-            CandyGenerator.instance.ManageCandy(other.gameObject.GetComponent<CandyController>(), this);
+            VehicleGenerator.instance.ManageVehicle(other.gameObject.GetComponent<VehicleController>(), this);
         }
     }
 }
